@@ -38,4 +38,6 @@ dependencies {
     implementation(Dependencies.appcompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintlayout)
+    implementation(platform(Dependencies.firebaseBom))
+    implementation(Dependencies.firebaseAuth)
 }
