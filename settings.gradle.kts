@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Tools"
 include(":app")
+include(":auth")

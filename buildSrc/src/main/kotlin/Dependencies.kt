@@ -1,6 +1,6 @@
 object Dependencies {
 
-   const val coreKtx = "androidx.core:core-ktx:1.12.0"
+    const val coreKtx = "androidx.core:core-ktx:1.12.0"
 
     const val appcompat = "androidx.appcompat:appcompat:1.6.1"
 
@@ -13,4 +13,8 @@ object Dependencies {
     const val extJunit = "androidx.test.ext:junit:1.1.5"
 
     const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
+
+    const val firebaseBom = "com.google.firebase:firebase-bom:32.2.2"
+
+    const val firebaseAuth = "com.google.firebase:firebase-auth-ktx"
 }
