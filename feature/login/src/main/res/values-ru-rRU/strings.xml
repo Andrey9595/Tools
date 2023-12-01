@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "login_tabs">
+        <item>почта</item>
+        <item>телефон</item>
+    </string-array>
+    <string name="password_matching_error">несоответствие паролей</string>
+    <string name="email_input_error">некорректный емеил</string>
+    <string name="password_input_error">некорректный пароль</string>
+    <string name="email">емеил</string>
+    <string name="password">пароль</string>
+    <string name="forgot_password"><u>забыли пароль?</u></string>
+    <string name="enter">войти</string>
+    <string name="new_user">новый пользователь</string>
+    <string name="sign_up">зарегистрироваться</string>
+</resources>
