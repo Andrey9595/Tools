@@ -13,4 +13,7 @@
     <string name="enter">enter</string>
     <string name="new_user">new user</string>
     <string name="sign_up">sign up</string>
+    <string name="phone_input_error">phone is invalid</string>
+    <string name="phone">phone</string>
+    <string name="send_code">send code</string>
 </resources>

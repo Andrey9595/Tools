@@ -13,4 +13,7 @@
     <string name="enter">войти</string>
     <string name="new_user">новый пользователь</string>
     <string name="sign_up">зарегистрироваться</string>
+    <string name="phone_input_error">некорректный номер</string>
+    <string name="phone">телефон</string>
+    <string name="send_code">получить код</string>
 </resources>
