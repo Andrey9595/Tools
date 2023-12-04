@@ -17,4 +17,6 @@ object Dependencies {
     const val firebaseBom = "com.google.firebase:firebase-bom:32.2.2"
 
     const val firebaseAuth = "com.google.firebase:firebase-auth-ktx"
+
+    const val lificycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
 }
