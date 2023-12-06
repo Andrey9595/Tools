@@ -1,5 +1,7 @@
 package ru.anb.auth
 
+import android.content.Context
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.tasks.await
@@ -7,7 +9,11 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-class AuthRepositoryImpl : Auth {
+class AuthRepositoryImpl(application: Context) : Auth {
+
+    init {
+        FirebaseApp.initializeApp(application)
+    }
 
     private val auth = FirebaseAuth.getInstance()
 

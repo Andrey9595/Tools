@@ -19,4 +19,7 @@ object Dependencies {
     const val firebaseAuth = "com.google.firebase:firebase-auth-ktx"
 
     const val lificycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+
+    const val koinAndroid = "io.insert-koin:koin-android:3.5.0"
+
 }

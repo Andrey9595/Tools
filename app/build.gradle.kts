@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.APPLICATION)
     id(Plugins.ANDROID)
+    id(Plugins.googleServices)
 }
 
 android {
@@ -39,10 +40,14 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":feature:login"))
+    implementation(project(":auth"))
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appcompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintlayout)
+    implementation(Dependencies.koinAndroid)
+
+
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.extJunit)
     androidTestImplementation(Dependencies.espresso)

@@ -46,4 +46,5 @@ dependencies {
     implementation(Dependencies.material)
     implementation(Dependencies.constraintlayout)
     implementation(Dependencies.lificycle)
+    implementation(Dependencies.koinAndroid)
 }
