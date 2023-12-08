@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.anb.core.BaseFragment
 import ru.anb.login.databinding.FragmentLoginWithEmailBinding
+import ru.anb.login.ui.forgotpassword.ForgotPasswordDialog
 
 class LoginWithEmailFragment() : BaseFragment<FragmentLoginWithEmailBinding>() {
 
@@ -28,7 +29,12 @@ class LoginWithEmailFragment() : BaseFragment<FragmentLoginWithEmailBinding>() {
         }
         with(binding) {
             enterButton.setOnClickListener {
-                viewModel.signIn(email = emailInput.text(), password = passwordInput.text())
+                viewModel.signIn(email = emailInput.emailInput.text(), password = passwordInput.text())
+
+            }
+            forgotPassword.setOnClickListener {
+                val dialog = ForgotPasswordDialog()
+                dialog.show(parentFragmentManager, null)
             }
         }
     }
