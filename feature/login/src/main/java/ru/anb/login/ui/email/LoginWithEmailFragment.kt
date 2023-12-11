@@ -28,7 +28,7 @@ class LoginWithEmailFragment() : BaseFragment<FragmentLoginWithEmailBinding>() {
             }
         }
         with(binding) {
-            enterButton.setOnClickListener {
+            enterButton.enterButton.setOnClickListener {
                 viewModel.signIn(email = emailInput.emailInput.text(), password = passwordInput.text())
 
             }

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingHorizontal="64dp">
 
-    <ProgressBar
+    <include
         android:id="@+id/progressbar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:visibility="invisible"
+        layout="@layout/progress_bar" />
 
     <include
         android:id="@+id/email_input"
@@ -42,15 +40,9 @@
         android:text="@string/forgot_password"
         android:textSize="15sp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/enter_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/enter"
-        android:textSize="16sp"
-        app:cornerRadius="8dp" />
+    <include
+        android:id="@+id/enterButton"
+        layout="@layout/auth_button"/>
 
     <include layout="@layout/registration_view" />
 

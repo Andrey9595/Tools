@@ -15,20 +15,21 @@ interface EmailUiState : UiState<FragmentLoginWithEmailBinding> {
 
     class Loading : EmailUiState {
         override fun update(binding: FragmentLoginWithEmailBinding) {
-            binding.progressbar.visibility = View.VISIBLE
+            binding.progressbar.progressbar.visibility = View.VISIBLE
         }
 
     }
 
     class Success : EmailUiState {
         override fun update(binding: FragmentLoginWithEmailBinding) {
-            binding.progressbar.visibility = View.GONE
+            binding.progressbar.progressbar.visibility = View.INVISIBLE
         }
     }
 
     class Error(private val message: String) : EmailUiState {
         override fun update(binding: FragmentLoginWithEmailBinding) {
             Toast.makeText(binding.root.context, message, Toast.LENGTH_LONG).show()
+            binding.progressbar.progressbar.visibility = View.INVISIBLE
         }
 
     }

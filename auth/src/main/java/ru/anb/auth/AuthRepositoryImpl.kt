@@ -46,4 +46,12 @@ class AuthRepositoryImpl(application: Context) : Auth {
     override fun logOut() {
         auth.signOut()
     }
+
+    override suspend fun resetPassword(email: String) = suspendCoroutine { contination ->
+        auth.sendPasswordResetEmail(email).addOnSuccessListener {
+            contination.resume(Unit)
+        }.addOnFailureListener {
+            contination.resumeWithException(it)
+        }
+    }
 }

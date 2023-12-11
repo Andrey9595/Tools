@@ -1,4 +1,4 @@
-package ru.anb.login.domain
+package ru.anb.login.domain.email
 
 import ru.anb.core.FlowWrapper
 import ru.anb.login.ui.email.EmailUiState
