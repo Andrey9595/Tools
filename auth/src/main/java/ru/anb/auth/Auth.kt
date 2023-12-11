@@ -1,10 +1,12 @@
 package ru.anb.auth
 
+import android.app.Activity
+
 interface Auth {
 
     suspend fun signInWithGoogle(token: String): User
 
-    fun signInWithPhone()
+   suspend fun signInWithPhone(phoneNumber: String, activity: Activity)
 
     suspend fun signInWithEmailAndPassword(email: String, password: String): User
 

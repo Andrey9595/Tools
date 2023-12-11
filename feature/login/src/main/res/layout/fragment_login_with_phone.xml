@@ -7,6 +7,11 @@
     android:gravity="center"
     android:paddingHorizontal="64dp">
 
+    <include
+        android:id="@+id/progress_bar"
+        android:visibility="invisible"
+        layout="@layout/progress_bar"/>
+
     <ru.anb.login.ui.input.PhoneInput
         android:id="@+id/email_input"
         android:layout_width="match_parent"
