@@ -9,18 +9,24 @@ import ru.anb.auth.Auth
 import ru.anb.auth.AuthRepositoryImpl
 import ru.anb.login.data.EmailRepositoryImpl
 import ru.anb.login.data.ForgotPasswordRepositoryImpl
+import ru.anb.login.data.LoginWithPhoneRepositoryImpl
 import ru.anb.login.domain.email.EmailFlowWrapper
 import ru.anb.login.domain.email.EmailInteractor
 import ru.anb.login.domain.email.EmailRepository
 import ru.anb.login.domain.forgotpassword.ForgotPasswordFlowWrapper
 import ru.anb.login.domain.forgotpassword.ForgotPasswordRepository
+import ru.anb.login.domain.phone.LoginWithPhoneRepository
+import ru.anb.login.domain.phone.PhoneFlowWrapper
+import ru.anb.login.domain.phone.PhoneInteractor
 import ru.anb.login.ui.email.EmailViewModel
 import ru.anb.login.ui.forgotpassword.ForgotPasswordDialogViewModel
+import ru.anb.login.ui.phone.LoginWithPhoneViewModel
 
 fun loginModule() = module {
 
     viewModelOf(::EmailViewModel)
     viewModelOf(::ForgotPasswordDialogViewModel)
+    viewModelOf(::LoginWithPhoneViewModel)
 
     factory { EmailInteractor.Base(get()) } bind EmailInteractor::class
 
@@ -40,5 +46,15 @@ fun loginModule() = module {
         ForgotPasswordFlowWrapper.Post::class,
         ForgotPasswordFlowWrapper.Collect::class,
         ForgotPasswordFlowWrapper.Mutable::class
+    )
+
+    factory { PhoneInteractor.Base(get()) } bind PhoneInteractor::class
+
+    factory { LoginWithPhoneRepositoryImpl(get()) } bind LoginWithPhoneRepository::class
+
+    factory { PhoneFlowWrapper.Base() } binds arrayOf(
+        PhoneFlowWrapper.Post::class,
+        PhoneFlowWrapper.Collect::class,
+        PhoneFlowWrapper.Mutable::class
     )
 }

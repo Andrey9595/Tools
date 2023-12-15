@@ -12,6 +12,7 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.coroutines.tasks.await
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -24,30 +25,30 @@ class AuthRepositoryImpl(application: Context) : Auth {
 
     private val auth = FirebaseAuth.getInstance()
 
-    override suspend fun signInWithGoogle(token: String): User {
+    override suspend fun signInWithGoogle(token: String): User = suspendCoroutine { continuation ->
         val credential = GoogleAuthProvider.getCredential(token, null)
-       return signInWithPhoneAuthCredential(credential)
+        signInWithCredential(credential, continuation)
     }
 
-    override suspend fun signInWithPhone(phoneNumber: String, activity: Activity) = suspendCoroutine { continuation ->
-        val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
-            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+    override suspend fun signInWithPhone(phoneNumber: String, activity: Activity): User =
+        suspendCoroutine { continuation ->
+            val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                    signInWithCredential(credential, continuation)
+                }
 
-                continuation.resume()
+                override fun onVerificationFailed(p0: FirebaseException) {
+                    continuation.resumeWithException(p0)
+                }
             }
-
-            override fun onVerificationFailed(p0: FirebaseException) {
-                TODO("Not yet implemented")
-            }
+            val options = PhoneAuthOptions.newBuilder(auth)
+                .setPhoneNumber(phoneNumber) // Phone number to verify
+                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                .setActivity(activity) // Activity (for callback binding)
+                .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
+                .build()
+            PhoneAuthProvider.verifyPhoneNumber(options)
         }
-        val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(activity) // Activity (for callback binding)
-            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-    }
 
     override suspend fun signInWithEmailAndPassword(email: String, password: String): User {
         val user = auth.signInWithEmailAndPassword(email, password).await().user!!
@@ -71,7 +72,7 @@ class AuthRepositoryImpl(application: Context) : Auth {
         }
     }
 
-    private suspend fun signInWithPhoneAuthCredential(credential: AuthCredential) = suspendCoroutine { continuation ->
+    private fun signInWithCredential(credential: AuthCredential, continuation: Continuation<User>) {
         auth.signInWithCredential(credential).addOnSuccessListener {
             val user = it.user
             if (user != null) {

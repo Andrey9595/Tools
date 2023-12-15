@@ -6,7 +6,7 @@ interface Auth {
 
     suspend fun signInWithGoogle(token: String): User
 
-   suspend fun signInWithPhone(phoneNumber: String, activity: Activity)
+   suspend fun signInWithPhone(phoneNumber: String, activity: Activity): User
 
     suspend fun signInWithEmailAndPassword(email: String, password: String): User
 
