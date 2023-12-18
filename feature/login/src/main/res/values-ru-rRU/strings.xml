@@ -11,7 +11,7 @@
     <string name="password">пароль</string>
     <string name="forgot_password"><u>забыли пароль?</u></string>
     <string name="enter">войти</string>
-    <string name="new_user">новый пользователь</string>
+    <string name="new_user">новый пользователь?</string>
     <string name="sign_up">зарегистрироваться</string>
     <string name="phone_input_error">некорректный номер</string>
     <string name="phone">телефон</string>
