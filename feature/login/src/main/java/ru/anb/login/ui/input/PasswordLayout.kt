@@ -20,11 +20,11 @@ class PasswordLayout @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         orientation = VERTICAL
-//        errorView = findViewById(R.id.password_mismatch_error_view)
-//        passwordList = listOf(
-//            findViewById(R.id.input_password),
-//            findViewById(R.id.confirm_password)
-//        )
+        errorView = findViewById(R.id.password_mismatch_error_view)
+        passwordList = listOf(
+            findViewById(R.id.password_input),
+            findViewById(R.id.confirm_password_input)
+        )
         addTextWatcher(BaseTextWatcher { errorView.text = "" })
     }
 

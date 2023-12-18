@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="64dp">
+
+    <include
+        android:id="@+id/progressbar"
+        layout="@layout/progress_bar"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/email_input"
+        layout="@layout/email_input" />
+
+    <ru.anb.login.ui.input.PasswordLayout
+        android:id="@+id/password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/password_input"
+            layout="@layout/password_input" />
+
+        <include
+            android:id="@+id/confirm_password_input"
+            layout="@layout/password_input" />
+
+        <TextView
+            android:id="@+id/password_mismatch_error_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </ru.anb.login.ui.input.PasswordLayout>
+
+
+</LinearLayout>

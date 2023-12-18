@@ -15,19 +15,9 @@
         android:id="@+id/email_input"
         layout="@layout/email_input" />
 
-    <ru.anb.login.ui.input.PasswordInput
+    <include
         android:id="@+id/password_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/password">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:maxLines="1" />
-
-    </ru.anb.login.ui.input.PasswordInput>
+        layout="@layout/password_input"/>
 
     <TextView
         android:id="@+id/forgot_password"
