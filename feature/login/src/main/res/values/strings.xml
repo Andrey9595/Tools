@@ -16,4 +16,5 @@
     <string name="phone_input_error">phone is invalid</string>
     <string name="phone">phone</string>
     <string name="send_code">send code</string>
+    <string name="with_google">continue with google</string>
 </resources>
