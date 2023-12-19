@@ -42,4 +42,5 @@ dependencies {
     implementation(Dependencies.appcompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintlayout)
+    implementation(Dependencies.koinAndroid)
 }

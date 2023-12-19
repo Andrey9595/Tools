@@ -15,11 +15,13 @@ import ru.anb.login.domain.email.EmailInteractor
 import ru.anb.login.domain.email.EmailRepository
 import ru.anb.login.domain.forgotpassword.ForgotPasswordFlowWrapper
 import ru.anb.login.domain.forgotpassword.ForgotPasswordRepository
+import ru.anb.login.domain.navigatetosignup.NavigateToSignUpFlowWrapper
 import ru.anb.login.domain.phone.LoginWithPhoneRepository
 import ru.anb.login.domain.phone.PhoneFlowWrapper
 import ru.anb.login.domain.phone.PhoneInteractor
 import ru.anb.login.ui.email.EmailViewModel
 import ru.anb.login.ui.forgotpassword.ForgotPasswordDialogViewModel
+import ru.anb.login.ui.navigatetosignup.NavigateToSignUpViewModel
 import ru.anb.login.ui.phone.LoginWithPhoneViewModel
 
 fun loginModule() = module {
@@ -27,6 +29,7 @@ fun loginModule() = module {
     viewModelOf(::EmailViewModel)
     viewModelOf(::ForgotPasswordDialogViewModel)
     viewModelOf(::LoginWithPhoneViewModel)
+    viewModelOf(::NavigateToSignUpViewModel)
 
     factory { EmailInteractor.Base(get()) } bind EmailInteractor::class
 
@@ -56,5 +59,11 @@ fun loginModule() = module {
         PhoneFlowWrapper.Post::class,
         PhoneFlowWrapper.Collect::class,
         PhoneFlowWrapper.Mutable::class
+    )
+
+    factory { NavigateToSignUpFlowWrapper.Base() } binds arrayOf(
+        NavigateToSignUpFlowWrapper.Post::class,
+        NavigateToSignUpFlowWrapper.Collect::class,
+        NavigateToSignUpFlowWrapper.Mutable::class
     )
 }

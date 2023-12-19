@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ru.anb.login.ui.navigatetosignup.NavigateToSignUp xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:parentTag="android.widget.LinearLayout"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,6 +12,7 @@
         android:textSize="15sp"/>
 
     <TextView
+        android:id="@+id/sign_up_button"
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,4 +22,4 @@
         android:clickable="true"
         android:focusable="true"
         android:textSize="15sp"/>
-</merge>
+</ru.anb.login.ui.navigatetosignup.NavigateToSignUp>
