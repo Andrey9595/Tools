@@ -47,4 +47,5 @@ dependencies {
     implementation(Dependencies.constraintlayout)
     implementation(Dependencies.lificycle)
     implementation(Dependencies.koinAndroid)
+    implementation(Dependencies.googlePlay)
 }

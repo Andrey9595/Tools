@@ -9,4 +9,8 @@ class RegistrationRepositoryImpl(private val auth: Auth) : RegistrationRepositor
     override suspend fun signUp(email: String, password: String): User {
         return auth.signUpWithEmailAndPassword(email, password)
     }
+
+    override suspend fun signInWithGoogle(token: String): User {
+        return auth.signInWithGoogle(token)
+    }
 }

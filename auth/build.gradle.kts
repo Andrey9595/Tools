@@ -40,4 +40,5 @@ dependencies {
     implementation(Dependencies.constraintlayout)
     implementation(platform(Dependencies.firebaseBom))
     implementation(Dependencies.firebaseAuth)
+    implementation(Dependencies.googlePlay)
 }

@@ -22,4 +22,5 @@ object Dependencies {
 
     const val koinAndroid = "io.insert-koin:koin-android:3.5.0"
 
+    const val googlePlay = "com.google.android.gms:play-services-auth:20.7.0"
 }
