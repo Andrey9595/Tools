@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Tools"
 include(":app")
+include(":auth")
+include(":feature:login")
+include(":core")

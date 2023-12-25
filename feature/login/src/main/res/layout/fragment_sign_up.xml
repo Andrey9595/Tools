@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="64dp">
+
+    <include
+        android:id="@+id/progressbar"
+        layout="@layout/progress_bar"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/email_input"
+        layout="@layout/email_input" />
+
+    <ru.anb.login.ui.input.PasswordLayout
+        android:id="@+id/password_layout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/password_input"
+            layout="@layout/password_input" />
+
+        <include
+            android:id="@+id/confirm_password_input"
+            layout="@layout/password_input" />
+
+        <TextView
+            android:id="@+id/password_mismatch_error_view"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
+    </ru.anb.login.ui.input.PasswordLayout>
+
+    <include
+        android:id="@+id/sign_up_button"
+        layout="@layout/auth_button"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_up_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/red"
+        app:icon="@drawable/google_icon"
+        app:iconTint="@android:color/transparent"
+        app:iconTintMode="add"
+        android:text="@string/with_google"
+        android:textSize="16sp"
+        app:cornerRadius="8dp" />
+
+
+</LinearLayout>
