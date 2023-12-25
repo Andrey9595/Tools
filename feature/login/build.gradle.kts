@@ -1,6 +1,6 @@
 plugins {
-    id(Plugins.androidLibrary)
-    id(Plugins.ANDROID)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -41,11 +41,11 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":auth"))
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintlayout)
-    implementation(Dependencies.lificycle)
-    implementation(Dependencies.koinAndroid)
-    implementation(Dependencies.googlePlay)
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.koin.android)
+    implementation(libs.googlePlay.auth)
 }

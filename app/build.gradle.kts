@@ -1,7 +1,7 @@
 plugins {
-    id(Plugins.APPLICATION)
-    id(Plugins.ANDROID)
-    id(Plugins.googleServices)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -41,14 +41,10 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":feature:login"))
     implementation(project(":auth"))
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintlayout)
-    implementation(Dependencies.koinAndroid)
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.koin.android)
 
-
-    testImplementation(Dependencies.junit)
-    androidTestImplementation(Dependencies.extJunit)
-    androidTestImplementation(Dependencies.espresso)
 }

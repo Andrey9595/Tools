@@ -1,6 +1,6 @@
 plugins {
-    id(Plugins.androidLibrary)
-    id(Plugins.ANDROID)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -34,11 +34,11 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintlayout)
-    implementation(platform(Dependencies.firebaseBom))
-    implementation(Dependencies.firebaseAuth)
-    implementation(Dependencies.googlePlay)
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.googlePlay.auth)
 }
