@@ -13,11 +13,14 @@ koin = "3.5.0"
 recyclerView = "1.3.2"
 firebaseBom = "32.7.0"
 googlePlayAuth = "20.7.0"
+navigation = "2.7.6"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+navigation-fragment = {group = "androidx.navigation", name = "androidx.navigation", version.ref = "navigation"}
+navigation-ui = {group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation"}
 material = { module = "com.google.android.material:material", version.ref = "material" }
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
