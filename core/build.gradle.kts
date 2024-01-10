@@ -1,21 +1,13 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    id("viewbinding-lib-convention")
 }
 
 android {
     namespace = "ru.anb.core"
-    compileSdk = Config.compileSdk
 
     defaultConfig {
-        minSdk = Config.minSdk
-
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 
     buildTypes {
@@ -27,17 +19,9 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = Config.jvmTarget
-    }
 }
 
 dependencies {
-
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

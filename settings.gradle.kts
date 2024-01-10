@@ -13,7 +13,9 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "Tools"
+includeBuild("build-logic")
 include(":app")
 include(":auth")
 include(":feature:login")

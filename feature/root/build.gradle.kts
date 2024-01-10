@@ -1,21 +1,13 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    id("viewbinding-lib-convention")
 }
 
 android {
     namespace = "com.example.root"
-    compileSdk = Config.compileSdk
 
     defaultConfig {
-        minSdk = Config.minSdk
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 
     buildTypes {
@@ -26,13 +18,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = Config.jvmTarget
     }
 }
 

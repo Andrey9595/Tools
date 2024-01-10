@@ -1,21 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("app-convention")
     alias(libs.plugins.google.services)
 }
 
 android {
     namespace = "ru.anb.tools"
-    compileSdk = Config.compileSdk
 
     defaultConfig {
         applicationId = "ru.anb.tools"
-        minSdk = Config.minSdk
-        targetSdk = Config.targetSdk
-        versionCode = Config.versionCode
-        versionName = Config.versionName
-
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -27,12 +22,8 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
-    }
     kotlinOptions {
-        jvmTarget = Config.jvmTarget
+        jvmTarget = "1.8"
     }
 }
 
