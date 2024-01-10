@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("viewbinding-lib-convention")
 }
@@ -8,6 +10,15 @@ android {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        val keystoreFile = project.rootProject.file("keys.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+        val webIdClientKey = properties.getProperty("WEB_CLIENT_ID") ?: ""
+        buildConfigField("String", "WEB_CLIENT_ID", webIdClientKey)
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
