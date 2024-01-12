@@ -1,9 +1,10 @@
+
 plugins {
     id("viewbinding-lib-convention")
 }
 
 android {
-    namespace = "com.example.root"
+    namespace = "com.example.home"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -22,11 +23,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:home"))
     implementation(project(":core"))
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.koin.android)
 }
