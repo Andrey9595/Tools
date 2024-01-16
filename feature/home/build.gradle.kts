@@ -23,8 +23,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":adapterDelegates"))
     implementation(project(":core"))
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.glide)
 }
