@@ -31,6 +31,7 @@ firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashly
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database-ktx" }
+firebase-storage = {group = "com.google.firebase", name = "firebase-storage-ktx"}
 googlePlay-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "googlePlayAuth" }
 glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 

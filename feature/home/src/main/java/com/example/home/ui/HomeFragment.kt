@@ -3,33 +3,31 @@ package com.example.home.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import com.example.adapterdelegates.CompositeAdapter
+import com.example.cloudservice.CloudServiceImpl
+import com.example.cloudservice.ProvideDatabase
 import com.example.home.databinding.FragmentHomeBinding
 import com.example.home.ui.model.ToolsGroupModel
+import kotlinx.coroutines.launch
 import ru.anb.core.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initBinding(inflater: LayoutInflater) = FragmentHomeBinding.inflate(inflater)
 
-    val listModel = listOf<ToolsGroupModel>(
-        ToolsGroupModel(
-            "test",
-            "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
-            "name"
-        ),
-        ToolsGroupModel(
-            "test2",
-            "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
-            "name2"
-        )
-    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val cloudService = CloudServiceImpl(ProvideDatabase.Base(requireActivity().application))
+        val flow = cloudService.subscribeToListOf(ToolsGroupModel::class.java, "groups")
         val adapter = CompositeAdapter.Builder()
             .addDelegate(ToolsGroupDelegate())
             .build()
         binding.toolsList.adapter = adapter
-        adapter.submitList(listModel)
+        viewLifecycleOwner.lifecycleScope.launch {
+            flow.collect() {
+                adapter.submitList(it)
+            }
+        }
     }
 }
