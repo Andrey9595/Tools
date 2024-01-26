@@ -9,10 +9,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.adapterdelegates.DelegateAdapter
 import com.example.adapterdelegates.DelegateViewHolder
 import com.example.home.databinding.ToolsGroupItemBinding
-import com.example.home.ui.model.ToolsGroupModel
-import com.google.firebase.storage.FirebaseStorage
+import com.example.home.ui.model.ToolsGroupUiModel
 
-class ToolsGroupDelegate : DelegateAdapter<ToolsGroupModel, ToolsGroupViewHolder>() {
+class ToolsGroupDelegate : DelegateAdapter<ToolsGroupUiModel, ToolsGroupViewHolder>() {
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return ToolsGroupViewHolder(
             ToolsGroupItemBinding.inflate(
@@ -25,18 +24,16 @@ class ToolsGroupDelegate : DelegateAdapter<ToolsGroupModel, ToolsGroupViewHolder
 }
 
 class ToolsGroupViewHolder(private val binding: ToolsGroupItemBinding) :
-    DelegateViewHolder<ToolsGroupModel>(binding) {
-    override fun bind(item: ToolsGroupModel) {
+    DelegateViewHolder<ToolsGroupUiModel>(binding) {
+    override fun bind(item: ToolsGroupUiModel) {
         binding.text.text = item.groupName
 
-        FirebaseStorage.getInstance().getReferenceFromUrl("gs://tools-294e4.appspot.com")
-            .child(item.imageUrl).downloadUrl.addOnSuccessListener {
-            Glide.with(binding.image)
-                .load(it)
-                .transform(
-                    CenterCrop(), RoundedCorners(10)
-                )
-                .into(binding.image)
-        }
+
+        Glide.with(binding.image)
+            .load(item.imageUrl)
+            .transform(
+                CenterCrop(), RoundedCorners(10)
+            )
+            .into(binding.image)
     }
 }

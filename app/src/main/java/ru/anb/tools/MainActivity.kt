@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         val navigation: Navigation by inject()
         navigation.setUpNavigation(supportFragmentManager, R.id.container)
         if (savedInstanceState == null)
-            supportFragmentManager.beginTransaction().replace(R.id.container, RootFragment())
-                .commit()
+            navigation.goTo(RootFragment::class.java)
     }
 }

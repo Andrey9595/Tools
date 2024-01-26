@@ -31,6 +31,7 @@ dependencies {
     implementation(project(":feature:root")) // TODO: remove?
     implementation(project(":core"))
     implementation(project(":feature:login")) // TODO: remove?
+    implementation(project(":feature:home")) // TODO: remove?
     implementation(project(":auth"))
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
