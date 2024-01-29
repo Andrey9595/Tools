@@ -1,0 +1,55 @@
+[versions]
+agp-plugin = "8.2.0"
+kotlin = "1.9.10"
+androidx-junit = "1.1.5"
+appcompat = "1.6.1"
+constraintlayout = "2.1.4"
+core-ktx = "1.12.0"
+espresso-core = "3.5.1"
+junit = "4.13.2"
+material = "1.10.0"
+lifecycle = "2.6.2"
+koin = "3.5.0"
+recyclerView = "1.3.2"
+firebaseBom = "32.7.0"
+googlePlayAuth = "20.7.0"
+navigation = "2.7.6"
+glide = "4.15.1"
+
+[libraries]
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+navigation-fragment = {group = "androidx.navigation", name = "androidx.navigation", version.ref = "navigation"}
+navigation-ui = {group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation"}
+material = { module = "com.google.android.material:material", version.ref = "material" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+recyclerView = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerView" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database-ktx" }
+firebase-storage = {group = "com.google.firebase", name = "firebase-storage-ktx"}
+googlePlay-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "googlePlayAuth" }
+glide = {group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
+
+leakCanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version = "2.12" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp-plugin" }
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp-plugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp-plugin" }
+google-services = { id = "com.google.gms.google-services", version = "4.4.0" }
+crashlytics = { id = "com.google.firebase.crashlytics", version = "2.9.9" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+

@@ -1,16 +1,12 @@
 plugins {
-    id(Plugins.androidLibrary)
-    id(Plugins.ANDROID)
+    id("base-lib-convention")
 }
 
 android {
     namespace = "ru.anb.auth"
-    compileSdk = Config.compileSdk
 
     defaultConfig {
-        minSdk = Config.minSdk
-
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -23,21 +19,14 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = Config.jvmTarget
-    }
 }
 
 dependencies {
-
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintlayout)
-    implementation(platform(Dependencies.firebaseBom))
-    implementation(Dependencies.firebaseAuth)
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.googlePlay.auth)
 }

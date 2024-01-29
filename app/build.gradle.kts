@@ -1,20 +1,16 @@
 plugins {
-    id(Plugins.APPLICATION)
-    id(Plugins.ANDROID)
+    id("app-convention")
+    alias(libs.plugins.google.services)
 }
 
 android {
     namespace = "ru.anb.tools"
-    compileSdk = Config.compileSdk
 
     defaultConfig {
         applicationId = "ru.anb.tools"
-        minSdk = Config.minSdk
-        targetSdk = Config.targetSdk
-        versionCode = Config.versionCode
-        versionName = Config.versionName
-
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -26,22 +22,21 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
-    }
     kotlinOptions {
-        jvmTarget = Config.jvmTarget
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
+    implementation(project(":feature:root")) // TODO: remove?
+    implementation(project(":core"))
+    implementation(project(":feature:login")) // TODO: remove?
+    implementation(project(":feature:home")) // TODO: remove?
+    implementation(project(":auth"))
+    implementation(libs.androidx.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.koin.android)
 
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintlayout)
-    testImplementation(Dependencies.junit)
-    androidTestImplementation(Dependencies.extJunit)
-    androidTestImplementation(Dependencies.espresso)
 }

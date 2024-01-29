@@ -13,6 +13,15 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "Tools"
+includeBuild("build-logic")
 include(":app")
 include(":auth")
+include(":feature:login")
+include(":core")
+include(":feature:root")
+include(":feature:home")
+include(":adapterDelegates")
+include(":cloudService")
+include(":cloudStorage")
